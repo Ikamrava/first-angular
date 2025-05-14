@@ -1,13 +1,34 @@
 <app-header></app-header>
-<main class="container mt-4">
-  <ul class="list-unstyled ">
-    <li >
-        @for (user of users; track user.id) {
-         <app-user [id]="user.id"  [avatar] = "user.avatar" [name]= "user.name" (selectUsertask)="onSelectUser($event)"/> 
-        }
-    </li>
-  </ul>
+
+<main class="container mt-4 bg-white">
+  <div class="row">
+    
+    <!-- Left Column: User list (25%) -->
+    <div class="col-3">
+      <ul class="list-unstyled">
+        <li *ngFor="let user of users">
+          <app-user 
+              [user]="user"
+              (selectUsertask)="onSelectUser($event)">
+            </app-user>
+
+          <!-- @for (item of users; track item.id) {
+            <app-user 
+              [user]="item"
+              (selectUsertask)="onSelectUser($event)">
+            </app-user>
+          } -->
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-9">
+      @if(selectedUser){
+       <app-tasks [name]="selectedUser.name"></app-tasks>
+      }@else {
+        <app-tasks [name]="users[0].name"></app-tasks>
+      }
+    </div>
+
+  </div>
 </main>
-
-
-
