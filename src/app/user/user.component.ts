@@ -14,7 +14,7 @@ interface User {
 })
 export class UserComponent {
 @Input({required:true}) user!:User
-  @Output() selectUsertask = new EventEmitter<string>();
+@Output() selectUsertask = new EventEmitter<string>();
  
 
 

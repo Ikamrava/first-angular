@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<main class="container mt-4 bg-white">
+<main class="container ">
   <div class="row">
     
     <!-- Left Column: User list (25%) -->
@@ -24,9 +24,9 @@
 
     <div class="col-9">
       @if(selectedUser){
-       <app-tasks [name]="selectedUser.name"></app-tasks>
+       <app-tasks [user_id]="selectedUser.id" [name]="selectedUser.name"></app-tasks>
       }@else {
-        <app-tasks [name]="users[0].name"></app-tasks>
+        <app-tasks [user_id] = "users[0].id" [name]="users[0].name"></app-tasks>
       }
     </div>
 
