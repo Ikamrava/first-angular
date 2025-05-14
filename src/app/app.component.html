@@ -7,8 +7,9 @@
     <div class="col-3">
       <ul class="list-unstyled">
         <li *ngFor="let user of users">
-          <app-user 
+            <app-user 
               [user]="user"
+              [selected]="user.id === selectedUserId"
               (selectUsertask)="onSelectUser($event)">
             </app-user>
 

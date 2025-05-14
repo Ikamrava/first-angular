@@ -4,8 +4,9 @@
   }
 </style>
 
-<div class="p-3">
-  <button class=" hover-bg-change d-flex align-items-center gap-2 w-100 rounded-2 p-2" 
+<div class="p-3" >
+
+  <button [class.active] = "selected" class=" hover-bg-change d-flex align-items-center gap-2 w-100 rounded-2 p-2" 
   (click)="onSelectUser()"
   >
     <img [src]="user.avatar" width="24" height="24" class="rounded-circle">
