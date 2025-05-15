@@ -1,16 +1,43 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
+import { NewTaskComponent } from "./new-task/new-task.component";
+
 
 
 @Component({
   selector: 'app-tasks',
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
 @Input() name: string | undefined;
-@Input() user_id:string | undefined
+@Input() user_id!:string;
+
+
+showModal = false;
+closeModal() {
+    this.showModal = false;
+  }
+
+onAddingTask(){
+  this.showModal = true
+  }
+
+onCreatetask(taskData: {title:string;summery:string; dueData:string}){
+
+  this.dummyTasks.push({
+    id: new Date().getTime().toString(),
+    userId:this.user_id,
+    title: taskData.title,
+    summary:taskData.summery,
+    dueDate : taskData.dueData
+  })
+
+  this.showModal = false
+  
+}
+
 
 
 dummyTasks = [
@@ -66,5 +93,13 @@ dummyTasks = [
 get selectedUserTasks(){
   return this.dummyTasks.filter((task)=> task.userId === this.user_id)
 }
+
+onCompletTask(id:string){
+  this.dummyTasks = this.dummyTasks.filter(task=>task.id !== id)
+}
+
+
+
+
 
 }

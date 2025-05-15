@@ -1,10 +1,10 @@
 <article>
-    @if(tasks){
-        <h2>{{tasks.title}}</h2>
-        <time>{{tasks.dueDate}}</time>
-        <p>{{tasks.summary}}</p>
+    @if(task){
+        <h2>{{task.title}}</h2>
+        <time>{{task.dueDate}}</time>
+        <p>{{task.summary}}</p>
         <p class="actions">
-            <button>Complte</button>
+            <button (click) = "onCompleteTask()">Complte</button>
         </p>
     }
     

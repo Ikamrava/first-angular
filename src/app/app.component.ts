@@ -5,15 +5,18 @@ import { UserComponent } from "./user/user.component";
 import { DUMMY_USERS } from '../../public/users/users';
 import { TasksComponent } from "./tasks/tasks.component";
 import { NgFor } from '@angular/common';
+import { NewTaskComponent } from './tasks/new-task/new-task.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [HeaderComponent, UserComponent, TasksComponent, NgFor]
+  imports: [HeaderComponent, UserComponent, TasksComponent, NgFor, NewTaskComponent]
 })
 
 export class AppComponent {
+
+
   users = DUMMY_USERS
   selectedUserId?:string
 
@@ -25,5 +28,7 @@ export class AppComponent {
   onSelectUser(id:string){
     this.selectedUserId = id
   }
+
+
   
 }
