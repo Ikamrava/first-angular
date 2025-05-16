@@ -53,6 +53,13 @@ private dummyTasks = [
   },
 ]
 
+constructor(){
+  const tasks = localStorage.getItem("tasks")
+  if(tasks){
+      this.dummyTasks = JSON.parse(tasks)
+  }
+}
+
 getUserTasks(userId:string){
     return this.dummyTasks.filter((task)=> task.userId === userId)
 }
@@ -66,11 +73,17 @@ addTask(taskData: {title:string;summery:string; dueData:string},userId:string){
     summary:taskData.summery,
     dueDate : taskData.dueData
   })
+  this.saveTasks()
   
 }
 
 deletTask(id:string){
   this.dummyTasks = this.dummyTasks.filter(task=>task.id !== id)
+  this.saveTasks()
+}
+
+private saveTasks(){
+  localStorage.setItem("tasks",JSON.stringify(this.dummyTasks))
 }
 
 }
