@@ -18,9 +18,6 @@ enterdSummery = ""
 enteredDueData = ""
 private taskService = inject(TaskService)
 
-
-
-
 onCancel(){
  this.close.emit();
 }

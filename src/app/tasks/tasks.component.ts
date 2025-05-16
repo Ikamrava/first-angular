@@ -34,8 +34,6 @@ get selectedUserTasks(){
 }
 
 
-onCompletTask(id:string){
-  return this.taskService.deletTask(id)
-}
+
 
 }
