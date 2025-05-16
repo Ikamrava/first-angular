@@ -13,7 +13,7 @@
         }
     </ul>
     @if(showModal){
-       <app-new-task (cancel)="closeModal()" (create)="onCreatetask($event)"/>
+       <app-new-task [userId]="user_id" (close)="closeModal()"/>
     }
 
 </section>
